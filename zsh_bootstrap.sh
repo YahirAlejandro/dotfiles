@@ -28,8 +28,14 @@ if [ ! -f ~/.profile ]; then
     echo "exec zsh" >> ~/.profile
 fi
 
-# Change shell for me
+# Copy ZSH config
+cp -f .zshrc ~/.zshrc
+
+# Change shell for me (sometimes it doesn't work dunno why)
 sudo chsh -s $(which zsh) $USER
 
 # Apply!
 source ~/.profile
+
+# Let's go
+zsh
