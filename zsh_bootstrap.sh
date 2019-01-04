@@ -22,6 +22,40 @@ mkdir -p ~/.local/share/fonts/ && mv PowerlineSymbols.otf ~/.local/share/fonts/
 fc-cache -vf ~/.local/share/fonts/
 mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
+# Install Awesome-fonts
+echo "Installing Awesome-Fonts"
+echo "Cloning repo..."
+mkdir ~/awesome-terminal-fonts
+git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/awesome-terminal-fonts
+
+if [ ! -d ~/.fonts ]; then
+    echo "No local ~/.fonts directory found, creating it..."
+    mkdir ~/.fonts    
+else
+    echo "There is a ~/.fonts directory!"
+fi
+
+echo "Copying build scripts into ~/.fonts"
+cp -R ~/awesome-terminal-fonts/build ~/.fonts
+echo "fc-cacheing it..."
+fc-cache -fv ~/.fonts
+
+if [ ! -d ~/.config ]; then
+    echo "No local ~/.config directory found, creating it..."
+    mkdir ~/.config
+else
+    echo "There is a local ~/.config directory!"
+fi
+
+echo "Default terminal font will be used."
+echo "To personalize, remember to change it at ~/.config/fontconfig/conf.d/10-symbols.conf"
+cp ~/awesome-terminal-fonts/config/10-symbols.conf ~/.config/fontconfig/conf.d
+
+echo "All set! Removing cloned repo from $HOME"
+rm -rf ~/awesome-terminal-fonts
+echo "WARNING: No sourcing is made here since it should have been included in the hardcoded .zshrc file in the repo!"
+echo "IF NOT, use: $ echo 'source ~/.fonts/*.sh' >> ~/.zshrc"
+
 # If profile file don't exists, create it and execute zsh
 if [ ! -f ~/.profile ]; then
     touch ~/.profile
