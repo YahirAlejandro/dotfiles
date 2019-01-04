@@ -1,6 +1,6 @@
 # Install packages that'll be using probably
 # TODO validate that these are installed. Fresh Ubuntu lacks curl for some reason and will fuck this up.
-sudo apt install zsh git fonts-powerline guake curl wget -y
+sudo apt install zsh git fonts-powerline guake curl wget tree htop -y
 
 # Get Oh-My-Zsh with a nasty shell piping!
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
