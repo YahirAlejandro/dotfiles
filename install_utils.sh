@@ -22,3 +22,7 @@ Type=Application
 Categories=Development;
 EOL
 
+# Cool Retro Term
+sudo add-apt-repository ppa:vantuz/cool-retro-term
+sudo apt update -y
+sudo apt install cool-retro-term -y
