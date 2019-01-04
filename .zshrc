@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
     # powerlevel9k prompt theme
     #DEFAULT_USER=$USER
 
-    POWERLEVEL9K_MODE="nerdfont-complete"
+    POWERLEVEL9K_MODE="awesome-fontconfig"
     POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
     #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_right"
 
@@ -263,3 +263,5 @@ alias 8='pu -8'
 alias 9='pu -9'
 alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
 alias po='() { popd &> /dev/null; dirs -v; }'
+
+source ~/.fonts/build/*.sh
