@@ -1,0 +1,84 @@
+# Install packages that'll be using probably
+# TODO validate that these are installed. Fresh Ubuntu lacks curl for some reason and will fuck this up.
+sudo apt install zsh git fonts-powerline guake curl wget tree htop -y
+
+# Get Oh-My-Zsh with a nasty shell piping!
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Get PowerLevel
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+# Replace default theme
+sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel9k\/powerlevel9k"/' ~/.zshrc
+
+# Get the theme's fonts
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+
+# Looks like an important config file but dunno what this fuckery does tbh
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+# Makes fonts things
+mkdir -p ~/.local/share/fonts/ && mv PowerlineSymbols.otf ~/.local/share/fonts/
+mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+fc-cache -vf ~/.local/share/fonts/
+
+# Install Awesome-fonts
+echo "Installing Awesome-Fonts"
+echo "Cloning repo..."
+mkdir ~/awesome-terminal-fonts
+git clone https://github.com/gabrielelana/awesome-terminal-fonts.git ~/awesome-terminal-fonts
+
+if [ ! -d ~/.fonts ]; then
+    echo "No local ~/.fonts directory found, creating it..."
+    mkdir ~/.fonts    
+else
+    echo "There is a ~/.fonts directory!"
+fi
+
+echo "Copying build scripts into ~/.fonts"
+cp -R ~/awesome-terminal-fonts/build ~/.fonts
+echo "fc-cacheing it..."
+fc-cache -fv ~/.fonts
+
+if [ ! -d ~/.config ]; then
+    echo "No local ~/.config directory found, creating it..."
+    mkdir ~/.config
+else
+    echo "There is a local ~/.config directory!"
+fi
+
+echo "Default terminal font will be used."
+echo "To personalize, remember to change it at ~/.config/fontconfig/conf.d/10-symbols.conf"
+cp ~/awesome-terminal-fonts/config/10-symbols.conf ~/.config/fontconfig/conf.d
+
+echo "All set! Removing cloned repo from $HOME"
+rm -rf ~/awesome-terminal-fonts
+echo "WARNING: No sourcing is made here since it should have been included in the hardcoded .zshrc file in the repo!"
+echo "IF NOT, use: $ echo 'source ~/.fonts/*.sh' >> ~/.zshrc"
+
+# Install Nerd Fonts "Hack"
+echo "Installing Nerd Fonts \"Hack\""
+echo "Downloading TTF"
+wget -P ~/ https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+echo "Unzipping into /usr/local/share/fonts"
+sudo unzip ~/Hack-v3.003-ttf.zip -d /usr/local/share/fonts
+echo "Running font caching, this might take a while and might look stale, let it run..."
+sudo fc-cache -f -v
+
+# If profile file don't exists, create it and execute zsh
+if [ ! -f ~/.profile ]; then
+    touch ~/.profile
+    echo "exec zsh" >> ~/.profile
+fi
+
+# Copy ZSH config
+cp -f .zshrc ~/.zshrc
+
+# Change shell for me (sometimes it doesn't work dunno why)
+sudo chsh -s $(which zsh) $USER
+
+# Apply!
+source ~/.profile
+
+# Let's go
+zsh
