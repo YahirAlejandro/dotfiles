@@ -70,6 +70,17 @@ sudo unzip ~/Hack-v3.003-ttf.zip -d /usr/local/share/fonts
 echo "[ZSH BOOTSTRAP] Running font caching, this might take a while and might look stale, let it run..."
 sudo fc-cache -fv /usr/local/share/fonts
 
+# Install Oh-My-Zsh plugins
+echo "[ZSH BOOTSTRAP] Will install ZSH plugins..."
+
+# Syntax highlighting
+echo "[ZSH BOOTSTRAP] Installing syntax highlighter for ZSH"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Autocompletion
+echo "[ZSH BOOTSTRAP] Installing cool autocompleter for ZSH"
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 # If profile file don't exists, create it and execute zsh
 if [ ! -f ~/.profile ]; then
     touch ~/.profile
