@@ -58,5 +58,23 @@
         "name": "DuckDuckGo",
         "trigger": "dd ",
         "url": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{7c9e9bde-769c-4ac1-bd56-08bd0428f2a4}.",
+        "name": "Twitter",
+        "trigger": "tw",
+        "url": "https://twitter.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{477ddd3f-661b-4456-9085-8dce0de98b98}.",
+        "name": "Rotten Tomatoes",
+        "trigger": "rotten",
+        "url": "https://www.rottentomatoes.com/search/?search=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{31a7e512-25bd-48b3-ba07-4e274c2e89ab}.",
+        "name": "Reddit",
+        "trigger": "reddit",
+        "url": "https://www.reddit.com/search?q=%s"
     }
 ]
