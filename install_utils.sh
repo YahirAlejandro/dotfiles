@@ -27,8 +27,21 @@ sudo add-apt-repository ppa:vantuz/cool-retro-term
 sudo apt update -y
 sudo apt install cool-retro-term -y
 
+# Flatpak
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update -y
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 # Telegram
 sudo snap install telegram-desktop
+
+# Spotify
+sudo snap install spotify
+
+# VSCode
+sudo snap install vscode --classic
 
 # Albert
 wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.04/Release.key -O Release.key
