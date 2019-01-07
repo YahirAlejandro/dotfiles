@@ -1,0 +1,62 @@
+[
+    {
+        "iconPath": ":google",
+        "name": "Google",
+        "trigger": "gg ",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "iconPath": ":youtube",
+        "name": "Youtube",
+        "trigger": "yt ",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{f11e61b9-42dd-4b83-9614-7de7a097210c}.",
+        "name": "StackOverflow",
+        "trigger": "so",
+        "url": "https://stackoverflow.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{8b6f3ff2-5245-46c5-a24c-cc56b582de9d}.",
+        "name": "Ask Ubuntu",
+        "trigger": "ubuntu",
+        "url": "https://askubuntu.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{72ad6a61-674f-4479-a5fd-2ddecd3dca5a}.",
+        "name": "Amazon Mexico",
+        "trigger": "amx",
+        "url": "https://www.amazon.com.mx/s/ref=nb_sb_noss?__mk_es_MX&field-keywords=%s"
+    },
+    {
+        "iconPath": ":amazon",
+        "name": "Amazon",
+        "trigger": "ama ",
+        "url": "http://www.amazon.com/s/?field-keywords=%s"
+    },
+    {
+        "iconPath": ":ebay",
+        "name": "Ebay",
+        "trigger": "eb ",
+        "url": "http://www.ebay.com/sch/i.html?_nkw=%s"
+    },
+    {
+        "iconPath": ":github",
+        "name": "GitHub",
+        "trigger": "gh ",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "iconPath": ":wolfram",
+        "name": "Wolfram Alpha",
+        "trigger": "=",
+        "url": "https://www.wolframalpha.com/input/?i=%s"
+    },
+    {
+        "iconPath": ":duckduckgo",
+        "name": "DuckDuckGo",
+        "trigger": "dd ",
+        "url": "https://duckduckgo.com/?q=%s"
+    }
+]
