@@ -76,5 +76,11 @@
         "name": "Reddit",
         "trigger": "reddit",
         "url": "https://www.reddit.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/yahir/.config/albert/org.albert.extension.websearch/{696867ed-0200-4bd7-81fc-82f807685867}.",
+        "name": "Crunchbase",
+        "trigger": "crunchbase",
+        "url": "https://www.crunchbase.com/organization/%s"
     }
 ]
