@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This is supposed to install a lot of packages that I use a lot
+# This is supposed to install a bunch of packages that I use a lot
 
 # Postman
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
@@ -9,8 +9,6 @@ rm postman.tar.gz
 sudo ln -s /opt/Postman/Postman /usr/bin/postman
 
 # Postman Unity Desktop file
-
-
 cat > ~/.local/share/applications/postman.desktop <<EOL
 [Desktop Entry]
 Encoding=UTF-8
@@ -59,3 +57,24 @@ if [ ! -d ~/.config]; then
 fi
 cp -rf albert ~/.config/
 albert &
+
+# Golang
+sudo apt install golang -y
+
+# Docker
+sudo apt install docker.io -y
+sudo usermod -aG docker $USER
+newgrp docker
+
+# gcloud SDK
+# Create environment variable for correct distribution
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+# Add the Cloud SDK distribution URI as a package source
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+# Update the package list and install the Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+# Kubectl
+sudo apt install kubectl -y
