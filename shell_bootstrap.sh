@@ -93,7 +93,7 @@ cp -f .zshrc ~/.zshrc
 
 # Change shell for me (sometimes it doesn't work dunno why)
 echo "[ZSH BOOTSTRAP] Setting zsh as default shell"
-sudo chsh -s $(which zsh) $USER
+chsh -s $(which zsh) $USER
 
 # Apply!
 source ~/.profile
