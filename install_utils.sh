@@ -1,6 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
 # This is supposed to install a bunch of packages that I use a lot
+
+set -e
+
+if [ "$(id -u)" = "0" ]; then
+    echo "WARNING: It might not be the best to run this as root."
+    echo "You will be prompted many times on sudo and confirmations commands anyways."
+    while true; do
+        read -p "Do you want to continue as root?" yn
+        case $yn in
+        [Yy]* ) continue; break;;
+        [Nn]* ) echo "Relauch this as your user"; exit 0;;
+        * ) echo "Please answer y or n";;
+        esac
+    done
+else
+    echo "This will prompt you many times if you want to install. Keep an eye on it."
+    sleep 3
+fi
 
 # Postman
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
@@ -61,10 +79,7 @@ albert &
 # Golang
 sudo apt install golang -y
 
-# Docker
-sudo apt install docker.io -y
-sudo usermod -aG docker $USER
-newgrp docker
+# gcloud SDK and kubectl are also available as non-release Snaps using the --classic flag when installing
 
 # gcloud SDK
 # Create environment variable for correct distribution
@@ -78,3 +93,8 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 
 # Kubectl
 sudo apt install kubectl -y
+
+# Docker
+sudo apt install docker.io -y
+sudo usermod -aG docker $USER
+newgrp docker # This might prevent further script execution
