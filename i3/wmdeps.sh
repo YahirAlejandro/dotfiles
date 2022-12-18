@@ -27,6 +27,7 @@ sudo apt-get install i3 -y
 sudo apt-get install xsecurelock -y
 
 # install Rofi
+# TODO: Track config files
 sudo apt-get install rofi -y
 
 # install feh
@@ -40,6 +41,13 @@ sudo apt install golang -y
 
 # DuckDuckGo
 sudo apt-get install ddgr -y
+
+# Cerebro
+# TODO: Track config files
+curl -LOJR https://github.com/cerebroapp/cerebro/releases/download/v0.10.0/cerebro_0.10.0_amd64.deb
+sudo chmod +x cerebro_0.10.0_amd64.deb
+sudo dpkg -i cerebro_0.10.0_amd64.deb
+rm cerebro_0.10.0_amd64.deb
 
 # CUSTOMIZATION----------------------------
 
