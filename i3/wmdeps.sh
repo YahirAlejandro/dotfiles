@@ -17,6 +17,9 @@ sudo snap install telegram-desktop
 # update package manager
 sudo apt-get update
 
+# cURL
+sudo apt-get install curl -y
+
 # install i3wm
 sudo apt-get install i3 -y
 
