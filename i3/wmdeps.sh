@@ -42,12 +42,21 @@ sudo apt install golang -y
 # DuckDuckGo
 sudo apt-get install ddgr -y
 
+# ZSH
+sudo apt install zsh -y
+
+# ZSH config
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Cerebro
 # TODO: Track config files
 curl -LOJR https://github.com/cerebroapp/cerebro/releases/download/v0.10.0/cerebro_0.10.0_amd64.deb
 sudo chmod +x cerebro_0.10.0_amd64.deb
 sudo dpkg -i cerebro_0.10.0_amd64.deb
 rm cerebro_0.10.0_amd64.deb
+# TODO: Fetch pre-existing config files if any, implement
+nohup cerebro > /dev/null 2>&1 &
 
 # CUSTOMIZATION----------------------------
 
